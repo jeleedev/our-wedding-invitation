@@ -5,8 +5,7 @@
 	import { Clipboard, Github } from '@lucide/svelte';
 	import { slide } from 'svelte/transition';
 
-	const googleMapsUrl =
-		'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6322.860406727866!2d127.035685!3d37.592033!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357cbcbc8d707a77%3A0x195d6ec549202318!2z6rOg66Ck64yA7ZWZ6rWQIOq1kOyasO2ajOq0gA!5e0!3m2!1sko!2skr!4v1745824760525!5m2!1sko!2skr';
+	const googleMapsUrl = 'https://map.kakao.com/?itemId=1086330671';
 
 	function copyAddress() {
 		navigator.clipboard
@@ -15,6 +14,10 @@
 			.catch(() => null);
 	}
 </script>
+
+<svelte:head>
+	<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a6f047a232b41430897e05564b19c29f"></script>
+</svelte:head>
 
 <section class="location">
 	<h2 class="title {localeStore.locale}">{$_('location.title')}</h2>
@@ -38,12 +41,12 @@
 		<div class="transportation-info">
 			<div class="info-group">
 				<p class="info-title">지하철</p>
-				<p class="info-content">지하철 6호선 고려대역 3번 출구. 직진 도보 3분 내외</p>
+				<p class="info-content">지하철 6호선 고려대역 2번 출구. 직진 도보 3분 내외</p>
 			</div>
 			<div class="info-group">
 				<p class="info-title">버스</p>
 				<p class="info-content">정류장명: 고려대학교 앞</p>
-				<p class="info-content">간선 101, 144, 173, 273</p>
+				<p class="info-content">간선: 101, 111, 144, 173, 273</p>
 				<p class="info-content">지선: 111, 1017, 1111, 1222, 2222, 7211</p>
 			</div>
 			<div class="info-group">
